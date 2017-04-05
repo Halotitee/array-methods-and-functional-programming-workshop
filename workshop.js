@@ -5,15 +5,26 @@ function forEach(callback, theArray) {
 }
 
 function map(mappingFunction, theArray) {
-   var newArray = [];
- for (var i = 0; i < theArray.length; i++) {              //pass theArray to mappingFunction
-   newArray.push(mappingFunction(theArray[i]))            //push mappingFunction into newArray
- }
- return newArray;
+  var newArray = [];
+  
+  forEach(function(element) {                     // we pass the element similar to callback (theArray[i]);
+    newArray.push(mappingFunction(element))       // as a result, this is what we want to do
+  }, theArray);                                   // this is the array we are referencing
+  
+  return newArray;
 }
 
-function filter(predicate, theArray) {
+/* 
+function map(mappingFunction, theArray) {
+  for (var i = 0; i < theArray.length; i++) {              //pass theArray to mappingFunction
+   newArray.push(mappingFunction(theArray[i]))             //push mappingFunction into newArray
+  }
+  return newArray;                                         //call newArray
+}
+*/
 
+function filter(predicate, theArray) {
+    
 }
 
 function every(predicate, theArray) {
