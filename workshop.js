@@ -1,5 +1,5 @@
 function forEach(callback, theArray) {
-  for (var i = 0; i < theArray.length; i++ ) {            //full loop  
+  for (var i = 0; i < theArray.length; i++ ) {            //for loop  
     callback(theArray[i]);                                //callback from theArray
   }
 }
@@ -24,11 +24,36 @@ function map(mappingFunction, theArray) {
 */
 
 function filter(predicate, theArray) {
+  
+  var newArray = [];
     
+    forEach(function(element) {
+        
+        if(predicate(element)){
+        
+          newArray.push(element);
+        
+        };
+      
+    },theArray)
+    
+  return newArray;  
 }
 
-function every(predicate, theArray) {
+/*
+function filter(predicate, theArray) {
+  var newArray = [];
+  for (var i = 0; i < theArray.length; i++) {
+    if(predicate(theArray[i])) {
+     newArray.push(theArray[i]);
+    }
+  }
+  return newArray;
+}
+*/
 
+function every(predicate, theArray) {
+    
 }
 
 function some(predicate, theArray) {
