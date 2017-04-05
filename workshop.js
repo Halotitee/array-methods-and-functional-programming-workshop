@@ -1,11 +1,15 @@
 function forEach(callback, theArray) {
-  for (var i = 0; i < theArray.length; i++ ) {
-    callback(theArray[i]);
+  for (var i = 0; i < theArray.length; i++ ) {            //full loop  
+    callback(theArray[i]);                                //callback from theArray
   }
 }
 
 function map(mappingFunction, theArray) {
-
+   var newArray = [];
+ for (var i = 0; i < theArray.length; i++) {              //pass theArray to mappingFunction
+   newArray.push(mappingFunction(theArray[i]))            //push mappingFunction into newArray
+ }
+ return newArray;
 }
 
 function filter(predicate, theArray) {
