@@ -100,21 +100,32 @@ function first(n, theArray) {
     if(arguments.length === 1 && typeof(n) === "object"){
       return n[0];
     }
-    else if(arguments.length === 2 && typeof(n) === "number"){
-      if(n > 0 && n < theArray.length){
-        return theArray.slice(0, n);
+    else if(arguments.length === 2 && typeof(n) === "number"){  // two arguments,
+      if(n > 0 && n < theArray.length){                         // return an array of the first 
+        return theArray.slice(0, n);                            // n elements of the input array
       }
-      else if(n < 0){
+      else if(n < 0){                                           // n is negative, return an empty array.
         return newArr;
       }
     }
     return theArray;
 }
 
-  
-
 function last(n, theArray) {
-
+    var newArr = [];
+    
+    if(arguments.length === 1 && typeof(n) === "object"){
+      return n[n.length-1];
+    }
+    else if(arguments.length === 2 && typeof(n) === "number"){
+      if(n > 0 && n < theArray.length){
+        return theArray.slice(theArray.length-n, theArray.length);
+      }
+      else if(n < 0){
+        return newArr;
+      }
+    }
+    return theArray;
 }
 
 function pluck(property, arrayOfObjects) {
